@@ -44,7 +44,7 @@ const Projects = () => {
                   >
                     {" "}
                     <img
-                      src={Projects1}
+                      src={projects.img1 || ""}
                       alt="image"
                       className="img-responsive"
                     />
@@ -70,7 +70,7 @@ const Projects = () => {
                   >
                     {" "}
                     <img
-                      src={Projects2}
+                      src={projects.img2 || ""}
                       alt="image"
                       className="img-responsive"
                     />
@@ -96,7 +96,7 @@ const Projects = () => {
                   >
                     {" "}
                     <img
-                      src={Projects3}
+                      src={projects.img3 || ""}
                       alt="image"
                       className="img-responsive"
                     />
@@ -122,7 +122,7 @@ const Projects = () => {
                   >
                     {" "}
                     <img
-                      src={Projects4}
+                      src={projects.img4 || ""}
                       alt="image"
                       className="img-responsive"
                     />
@@ -148,7 +148,7 @@ const Projects = () => {
                   >
                     {" "}
                     <img
-                      src={Projects5}
+                      src={projects.img5 || ""}
                       alt="image"
                       className="img-responsive"
                     />
@@ -174,7 +174,7 @@ const Projects = () => {
                   >
                     {" "}
                     <img
-                      src={Projects6}
+                      src={projects.img6 || ""}
                       alt="image"
                       className="img-responsive"
                     />
