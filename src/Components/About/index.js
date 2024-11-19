@@ -1,6 +1,17 @@
 import Signature from "../../Assets/img/Screenshot (25).png";
-import AboutImg from "../../Assets/img/Afirst.jpg";
+import React, { useState, useEffect } from "react";
+import AboutImg from "../../Assets/img/myphot.jpeg";
+import { getDatabase, ref, onValue } from "firebase/database";
 const About = () => {
+  const [about, setAbout] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const aboutRef = ref(db, "about");
+    onValue(aboutRef, (snapshot) => {
+      const data = snapshot.val();
+      setAbout(data);
+    });
+  }, []);
   return (
     <div className="section" id="about">
       <div className="container">
@@ -11,15 +22,16 @@ const About = () => {
           </h1>
           <div className="h-50" />
           <p>
-          Hi, I’m Afirst, a 19-year-old student currently studying Computer Science at Universitas Klabat. 
-          I have a strong interest in computer technology and a good understanding of the basics, 
-          including hardware, software, and troubleshooting.
+            Hi, I’m Afirst, a 19-year-old student currently studying Computer
+            Science at Universitas Klabat. I have a strong interest in computer
+            technology and a good understanding of the basics, including
+            hardware, software, and troubleshooting.
           </p>
           <p>
-          In my free time, I enjoy exploring new technologies to enhance my skills, 
-          such as basic programming and data management. 
-          I believe that continuous learning and growth will enable me to contribute 
-          to technological advancements in the future.
+            In my free time, I enjoy exploring new technologies to enhance my
+            skills, such as basic programming and data management. I believe
+            that continuous learning and growth will enable me to contribute to
+            technological advancements in the future.
           </p>
           <div className="h-50" />
           <img src={Signature} width={230} />
