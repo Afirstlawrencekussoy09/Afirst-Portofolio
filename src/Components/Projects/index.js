@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 import Projects1 from "../../../src/Assets/img/portfolio/Computer 1.jpg";
 import Projects2 from "../../../src/Assets/img/portfolio/Computer 2.jpg";
 import Projects3 from "../../../src/Assets/img/portfolio/Computer 3.jpg";
@@ -5,13 +7,22 @@ import Projects4 from "../../../src/Assets/img/portfolio/Bisni 1.jpg";
 import Projects5 from "../../../src/Assets/img/portfolio/Bisnis 2.jpg";
 import Projects6 from "../../../src/Assets/img/portfolio/Bisnis 3.jpg";
 const Projects = () => {
+  const [projects, setProjects] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const projectsRef = ref(db, "projects");
+    onValue(projectsRef, (snapshot) => {
+      const data = snapshot.val();
+      setProjects(data);
+    });
+  }, []);
   return (
     <div className="section" id="projects">
       <div className="container">
         <div className="col-md-12">
-          <h4>03</h4>
+          <h4>{projects.projects1}</h4>
           <h1 className="size-50">
-            My <br /> Projects
+            {projects.projects2} <br /> {projects.projects3}
           </h1>
         </div>
         {/* main container */}
@@ -41,9 +52,9 @@ const Projects = () => {
                       <div className="portfolio-border clearfix">
                         <div className="item_info">
                           {" "}
-                          <span>UI DESIGN</span>{" "}
-                          <h3>UI Design of Luxury Car Wash</h3>
-                          <em>Computer</em>{" "}
+                          <span>{projects.projects4}</span>{" "}
+                          <h3>{projects.projects5}</h3>
+                          <em>{projects.projects6}</em>{" "}
                         </div>
                       </div>
                     </div>
@@ -67,9 +78,9 @@ const Projects = () => {
                       <div className="portfolio-border clearfix">
                         <div className="item_info">
                           {" "}
-                          <span>MOBILE APPLICATION DEVELOPMENT</span>
-                          <h3>Dormitory in UNKLAB</h3>
-                          <em>Computer</em>{" "}
+                          <span>{projects.projects7}</span>
+                          <h3>{projects.projects8}</h3>
+                          <em>{projects.projects9}</em>{" "}
                         </div>
                       </div>
                     </div>
@@ -93,9 +104,9 @@ const Projects = () => {
                       <div className="portfolio-border clearfix">
                         <div className="item_info">
                           {" "}
-                          <span>WEB DESIGN</span>{" "}
-                          <h3>Nissie's Petshop Airmadidi</h3>
-                          <em>Computer</em>{" "}
+                          <span>{projects.projects10}</span>{" "}
+                          <h3>{projects.projects11}</h3>
+                          <em>{projects.projects12}</em>{" "}
                         </div>
                       </div>
                     </div>
@@ -119,12 +130,9 @@ const Projects = () => {
                       <div className="portfolio-border clearfix">
                         <div className="item_info">
                           {" "}
-                          <span>BUSINESS PROCESS REENGINEERING</span>
-                          <h3>
-                            Optimalization Business Process of Pabrik Paving
-                            CV.Mitra Karya Nusantara
-                          </h3>
-                          <em>Business</em>{" "}
+                          <span>{projects.projects13}</span>
+                          <h3>{projects.projects14}</h3>
+                          <em>{projects.projects15}</em>{" "}
                         </div>
                       </div>
                     </div>
@@ -148,9 +156,9 @@ const Projects = () => {
                       <div className="portfolio-border clearfix">
                         <div className="item_info">
                           {" "}
-                          <span>MANAGEMENT INFORMATION SYSTEM</span>
-                          <h3>Canteen Universitas Klabat</h3>
-                          <em>Business</em>{" "}
+                          <span>{projects.projects16}</span>
+                          <h3>{projects.projects17}</h3>
+                          <em>{projects.projects18}</em>{" "}
                         </div>
                       </div>
                     </div>
@@ -174,9 +182,9 @@ const Projects = () => {
                       <div className="portfolio-border clearfix">
                         <div className="item_info">
                           {" "}
-                          <span>INFORMATION SYSTEM AUDIT</span>{" "}
-                          <h3>LPMI Universitas Klabat</h3>
-                          <em>Business</em>{" "}
+                          <span>{projects.projects19}</span>{" "}
+                          <h3>{projects.projects20}</h3>
+                          <em>{projects.projects21}</em>{" "}
                         </div>
                       </div>
                     </div>
