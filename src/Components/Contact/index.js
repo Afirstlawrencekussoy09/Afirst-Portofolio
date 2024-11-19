@@ -1,21 +1,32 @@
+import React, { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 const Contact = () => {
+  const [contact, setContact] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const contactRef = ref(db, "contact");
+    onValue(contactRef, (snapshot) => {
+      const data = snapshot.val();
+      setContact(data);
+    });
+  }, []);
   return (
     <div className="section" id="contact">
       <div className="container">
         <div className="col-md-12">
-          <h4>04</h4>
-          <h1 className="size-50">Contact Me</h1>
+          <h4>{contact.contact1}</h4>
+          <h1 className="size-50">{contact.contact2}</h1>
           <div className="h-50" />
         </div>
         <div className="col-md-4" data-aos="fade-up">
-          <h3>My Phone Number:</h3>
-          <p>+62 895397571327</p>
-          <h3>My Email:</h3>
-          <p>kussoyafirst@gmail.com</p>
-          <h3>My Instagram:</h3>
-          <p>@AfrstLaurn</p>
-          <h3>My Facebook:</h3>
-          <p>Afirst Kussoy</p>
+          <h3>{contact.contact3}</h3>
+          <p>{contact.contact4}</p>
+          <h3>{contact.contact5}</h3>
+          <p>{contact.contact6}</p>
+          <h3>{contact.contact7}</h3>
+          <p>{contact.contact8}</p>
+          <h3>{contact.contact9}</h3>
+          <p>{contact.contact10}</p>
           <div className="clearfix" />
           <div className="h-50" />
         </div>
@@ -58,21 +69,13 @@ const Contact = () => {
               name="submit"
               className="btn btn-glance"
             >
-              Send
+              {contact.contact11}
             </button>
             <div id="success">
-              <p className="green textcenter">
-                {" "}
-                Your message was sent successfully! I will be in touch as soon
-                as I can.{" "}
-              </p>
+              <p className="green textcenter"> {contact.contact12} </p>
             </div>
             <div id="error">
-              <p>
-                {" "}
-                Something went wrong, try refreshing and submitting the form
-                again.{" "}
-              </p>
+              <p> {contact.contact13} </p>
             </div>
           </form>
         </div>

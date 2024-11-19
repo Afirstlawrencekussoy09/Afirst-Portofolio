@@ -1,6 +1,5 @@
-import Signature from "../../Assets/img/Screenshot (25).png";
-
 import React, { useState, useEffect } from "react";
+import Img from "../../Assets/img/myphot.jpeg";
 import { getDatabase, ref, onValue } from "firebase/database";
 const About = () => {
   const [about, setAbout] = useState({});
@@ -25,8 +24,7 @@ const About = () => {
           <p>{about.desc}</p>
           <p>{about.desc2}</p>
           <div className="h-50" />
-          <img 
-          src={`data:image/jpg;base64,${about.image2}`} width={230} />
+          <img src={about.image2 || ""} width={230} />
           <div className="h-50" />
         </div>
         <div className="col-md-6 about-img-div">
@@ -36,7 +34,7 @@ const About = () => {
             data-aos-delay=".5"
           />
           <img
-            src={`data:image/jpg;base64,${about.image1}`}
+            src={about.image1 || ""}
             width={400}
             className="img-responsive"
             alt
