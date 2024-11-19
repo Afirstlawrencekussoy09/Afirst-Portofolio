@@ -1,11 +1,22 @@
+import React, { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 const Education = () => {
+  const [education, setEducation] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const educationRef = ref(db, "education");
+    onValue(educationRef, (snapshot) => {
+      const data = snapshot.val();
+      setEducation(data);
+    });
+  }, []);
   return (
     <div className="section" id="experience">
       <div className="container">
         <div className="col-md-12">
-          <h4>02</h4>
+          <h4>{education.education1}</h4>
           <h1 className="size-50">
-            My <br /> Education
+            {education.education2} <br /> {education.education3}
           </h1>
           <div className="h-50" />
         </div>
@@ -15,15 +26,14 @@ const Education = () => {
               <label className="timeline-event-icon" />
               <div className="timeline-event-copy">
                 <p className="timeline-event-thumbnail">
-                  Juli 2010 - Juli 2019
+                  {education.education4}
                 </p>
-                <h3>SD - SMP ADVENT TONDANO</h3>
-                <h4>Consistently ranked in the top 5 of the class</h4>
+                <h3>{education.education5}</h3>
+                <h4>{education.education6}</h4>
                 <p>
-                  <strong>Academic Achiever and Active Participant</strong>
+                  <strong>{education.education7}</strong>
                   <br />
-                  Excelled in academics and actively participated in various
-                  activities, recognized as a disciplined and diligent student.
+                  {education.education8}
                 </p>
               </div>
             </li>
@@ -35,19 +45,14 @@ const Education = () => {
               <label className="timeline-event-icon" />
               <div className="timeline-event-copy">
                 <p className="timeline-event-thumbnail">
-                  Juli 2019 - Juli 2022
+                  {education.education9}
                 </p>
-                <h3>SMA NEGERI 3 TONDANO</h3>
-                <h4>
-                  Served as the class treasurer and actively participated in
-                  school organizations
-                </h4>
+                <h3>{education.education10}</h3>
+                <h4>{education.education11}</h4>
                 <p>
-                  <strong>Academic Achiever and Active Participant</strong>
+                  <strong>{education.education12}</strong>
                   <br />
-                  Excelled in academics with a focus on science subjects,
-                  actively participated in student organizations, and recognized
-                  as a reliable team leader.{" "}
+                  {education.education13}{" "}
                 </p>
               </div>
             </li>
@@ -59,16 +64,14 @@ const Education = () => {
               <label className="timeline-event-icon" />
               <div className="timeline-event-copy">
                 <p className="timeline-event-thumbnail">
-                  Agustus 2022 - Present
+                  {education.education14}
                 </p>
-                <h3>UNIVERSITAS KLABAT</h3>
-                <h4>Competitions, certifications, or academic recognition</h4>
+                <h3>{education.education15}</h3>
+                <h4>{education.education16}</h4>
                 <p>
-                  <strong>Academic Achiever and Active Participant</strong>
+                  <strong>{education.education17}</strong>
                   <br />
-                  5th semester students, and have completed quite a lot of
-                  courses, My journey so far has strengthened my ability to
-                  solve complex problems.{" "}
+                  {education.education18}{" "}
                 </p>
               </div>
             </li>
